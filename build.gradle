@@ -16,7 +16,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'kotlin'
 
 version = '1.0'
-group = 'xyz.ludoviko.kontrolo' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = 'xyz.ludoviko.ktrl' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'ktrl'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
@@ -58,7 +58,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                ktrl {
                     source sourceSets.main
                 }
             }
@@ -80,7 +80,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                ktrl {
                     source sourceSets.main
                 }
             }
@@ -105,7 +105,7 @@ minecraft {
             args '--mod', 'ktrl', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                examplemod {
+                ktrl {
                     source sourceSets.main
                 }
             }
