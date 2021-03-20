@@ -1,4 +1,4 @@
-package xyz.ludoviko.kontrolo
+package xyz.ludoviko.ktrl
 
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
