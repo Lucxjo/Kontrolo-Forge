@@ -16,8 +16,8 @@ apply plugin: 'maven-publish'
 apply plugin: 'kotlin'
 
 version = '1.0'
-group = 'example.examplemod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'modid'
+group = 'xyz.ludoviko.kontrolo' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'ktrl'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
 
@@ -102,7 +102,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'ktrl', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
                 examplemod {
