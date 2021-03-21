@@ -11,7 +11,6 @@ object Key {
     var keys = arrayOf(KeyBinding("key.ktrl.gui", GLFW.GLFW_KEY_K, "category.ktrl.gui"))
 
     init {
-
         for (i in keys.indices) {
             ClientRegistry.registerKeyBinding(keys[i])
         }

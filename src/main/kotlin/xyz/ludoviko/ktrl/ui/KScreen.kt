@@ -4,6 +4,7 @@ import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.widget.button.Button
 import net.minecraft.util.text.StringTextComponent
 import net.minecraft.util.text.TranslationTextComponent
+import xyz.ludoviko.ktrl.ui.widget.KButton
 
 
 class KScreen : Screen(StringTextComponent("")) {
@@ -18,7 +19,7 @@ class KScreen : Screen(StringTextComponent("")) {
 
     override fun init() {
         super.init()
-        addButton(Button(
+        addButton(KButton(
             (width - BUTTON_WIDTH) / 2,
             height - DONE_BUTTON_TOP_OFFSET,
             BUTTON_WIDTH, BUTTON_HEIGHT,  // Text shown on the button
