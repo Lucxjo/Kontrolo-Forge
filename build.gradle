@@ -15,7 +15,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'kotlin'
 
-version = '1.0'
+version = '1.0.0'
 group = 'xyz.ludoviko.ktrl' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'ktrl'
 
