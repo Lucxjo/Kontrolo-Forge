@@ -1,0 +1,10 @@
+{
+  "homepage": "https://github.com/Lucxjo/Kontrolo-Forge/",
+  "1.16.5": {
+    "1.0.0": "Start of a new mod.", 
+  },
+  "promos": {
+    "1.16.5-latest": "1.0.0",
+    "1.16.5-recommended": "1.0.0",
+  }
+}
