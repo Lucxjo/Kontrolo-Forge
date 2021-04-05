@@ -1,10 +1,11 @@
 {
-  "homepage": "https://github.com/Lucxjo/Kontrolo-Forge/",
+  "homepage": "https://git.saluton.cc/Lucxjo/Kontrolo-Forge",
   "1.16.5": {
-    "1.0.0": "Start of a new mod.", 
+    "1.0.0": "Start of a new mod.",
+    "1.1.0": "Added time controls." 
   },
   "promos": {
     "1.16.5-latest": "1.0.0",
-    "1.16.5-recommended": "1.0.0",
+    "1.16.5-recommended": "1.0.0"
   }
 }
