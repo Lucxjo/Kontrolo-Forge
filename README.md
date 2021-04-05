@@ -1,2 +1,2 @@
-# CleanForgeTemplate
-A template for a clean forge environment
+# Kontrolo for Forge
+A simple QoL mod for Minecraft Forge
