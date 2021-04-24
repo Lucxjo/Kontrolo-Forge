@@ -2,10 +2,11 @@
   "homepage": "https://git.saluton.cc/Lucxjo/Kontrolo-Forge",
   "1.16.5": {
     "1.0.0": "Start of a new mod.",
-    "1.1.0": "Added time controls." 
+    "1.1.0": "Added time controls.",
+    "1.2.0": "Added Gamemode controls. Streamlined code. Removed Done button. Now requires Kotlin for Forge >=1.11.1"
   },
   "promos": {
-    "1.16.5-latest": "1.1.0",
-    "1.16.5-recommended": "1.1.0"
+    "1.16.5-latest": "1.2.0",
+    "1.16.5-recommended": "1.2.0"
   }
 }
