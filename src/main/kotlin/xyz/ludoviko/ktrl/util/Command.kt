@@ -4,7 +4,7 @@ interface Command {
 
     fun id(): Int
 
-    fun translationKey(): String
+    fun text(): String
 
     fun command(): String
 }

@@ -17,7 +17,7 @@ enum class Gamemode(private val id: Int, private val translationKey: String, pri
         return id
     }
 
-    override fun translationKey(): String {
+    override fun text(): String {
         return translationKey
     }
 

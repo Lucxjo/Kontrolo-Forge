@@ -1,9 +1,9 @@
 package xyz.ludoviko.ktrl.util
 
-enum class Weather(private val id: Int, private val translationKey: String) {
-    CLEAR(0, "text.ktrl.weather.clear.label"),
-    RAIN(1, "text.ktrl.weather.rain.label"),
-    THUNDER(2, "text.ktrl.weather.thunder.label");
+enum class Weather(private val id: Int, private val text: String, private val cmd: String) : Command {
+    CLEAR(0, "text.ktrl.weather.clear.label", "/weather clear 15000"),
+    RAIN(1, "text.ktrl.weather.rain.label", "/weather rain 15000"),
+    THUNDER(2, "text.ktrl.weather.thunder.label", "/weather thunder 15000");
 
     fun byId(id: Int): Weather {
         for (weather in values()) {
@@ -12,11 +12,15 @@ enum class Weather(private val id: Int, private val translationKey: String) {
         return CLEAR
     }
 
-    fun id(): Int {
+    override fun id(): Int {
         return id
     }
 
-    fun translationKey(): String {
-        return translationKey
+    override fun text(): String {
+        return text
+    }
+
+    override fun command(): String {
+        return cmd
     }
 }

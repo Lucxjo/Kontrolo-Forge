@@ -3,7 +3,6 @@ package xyz.ludoviko.ktrl.ui
 import com.mojang.blaze3d.matrix.MatrixStack
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.screen.Screen
-import net.minecraft.client.gui.widget.button.Button
 import net.minecraft.util.text.StringTextComponent
 import net.minecraft.util.text.TranslationTextComponent
 import xyz.ludoviko.ktrl.ui.widget.KButton
@@ -29,93 +28,30 @@ class KScreen : Screen(StringTextComponent("Kontrolo")) {
         addWeather()
         addTime()
         addGamemode()
-
-        addButton(KButton(
-            (width - BUTTON_WIDTH) / 2,
-            height - DONE_BUTTON_TOP_OFFSET,
-            BUTTON_WIDTH, BUTTON_HEIGHT,  // Text shown on the button
-            TranslationTextComponent("gui.done")
-        )  // Action performed when the button is pressed
-        { button: Button? -> onClose() })
     }
 
     private fun addWeather() {
-        addButton(KButton(
-            20, 55, 120, 20, TranslationTextComponent(Weather.CLEAR.translationKey())
-        ) {
-            Minecraft.getInstance().player?.chat("/weather clear 15000")
-            onClose()
-        })
-        addButton(KButton(
-            150, 55, 120, 20, TranslationTextComponent(Weather.RAIN.translationKey())
-        ) {
-            Minecraft.getInstance().player?.chat("/weather rain 15000")
-            onClose()
-        })
-        addButton(KButton(
-            280, 55, 120, 20, TranslationTextComponent(Weather.THUNDER.translationKey())
-        ) {
-            Minecraft.getInstance().player?.chat("/weather thunder 15000")
-            onClose()
-        })
+        addKButton(20, 55, 120, 20, Weather.CLEAR)
+        addKButton(150, 55, 120, 20, Weather.RAIN)
+        addKButton(280, 55, 120, 20, Weather.THUNDER)
     }
 
     private fun addTime() {
-        addButton(KButton(
-            20, 100, 90, 20, TranslationTextComponent(Time.DAY.translationKey())
-        ) {
-            Minecraft.getInstance().player?.chat("/time set day")
-            onClose()
-        })
+        addKButton(20, 100, 90, 20, Time.DAY)
 
-        addButton(KButton(
-            120, 100, 90, 20, TranslationTextComponent(Time.NOON.translationKey())
-        ) {
-            Minecraft.getInstance().player?.chat("/time set noon")
-            onClose()
-        })
+        addKButton(120, 100, 90, 20, Time.NOON)
 
-        addButton(KButton(
-            220, 100, 90, 20, TranslationTextComponent(Time.NIGHT.translationKey())
-        ) {
-            Minecraft.getInstance().player?.chat("/time set night")
-            onClose()
-        })
+        addKButton(220, 100, 90, 20, Time.NIGHT)
 
-        addButton(KButton(
-            320, 100, 90, 20, TranslationTextComponent(Time.MIDNIGHT.translationKey())
-        ) {
-            Minecraft.getInstance().player?.chat("/time set midnight")
-            onClose()
-        })
+        addKButton(320, 100, 90, 20, Time.MIDNIGHT)
 
-        addButton(KButton(
-            20, 120, 90, 20, TranslationTextComponent("text.ktrl.time.zero.label")
-        ) {
-            Minecraft.getInstance().player?.chat("/time set 0")
-            onClose()
-        })
+        addKButton(20, 120, 90, 20, Time.ZERO)
 
-        addButton(KButton(
-            120, 120, 90, 20, StringTextComponent("+ 1000")
-        ) {
-            Minecraft.getInstance().player?.chat("/time add 1000")
-            onClose()
-        })
+        addKButton(120, 120, 90, 20, Time.ADD1, false)
 
-        addButton(KButton(
-            220, 120, 90, 20, StringTextComponent("+ 10000")
-        ) {
-            Minecraft.getInstance().player?.chat("/time add 10000")
-            onClose()
-        })
+        addKButton(220, 120, 90, 20, Time.ADD2, false)
 
-        addButton(KButton(
-            320, 120, 90, 20, TranslationTextComponent("text.ktrl.time.button")
-        ) {
-            Minecraft.getInstance().player?.chat("/time query gametime")
-            onClose()
-        })
+        addKButton(320, 120, 90, 20, Time.QUERY)
     }
 
     private fun addGamemode() {
@@ -141,12 +77,21 @@ class KScreen : Screen(StringTextComponent("Kontrolo")) {
             TranslationTextComponent("text.ktrl.time.label"),
             20, 85, 0xFFFFFF
         )
+        drawString(
+            matrixStack, this.font,
+            TranslationTextComponent("text.ktrl.gm.label"),
+            20, 150, 0xFFFFFF
+        )
         super.render(matrixStack, mouseX, mouseY, partialTicks)
     }
 
-    fun addKButton(xPos: Int, yPos: Int, width: Int, height: Int, enum: Command) {
+    fun addKButton(xPos: Int, yPos: Int, width: Int, height: Int, enum: Command, translatable: Boolean = true) {
         addButton(KButton(
-            xPos, yPos, width, height, TranslationTextComponent(enum.translationKey())
+            xPos, yPos, width, height, if (translatable) {
+                TranslationTextComponent(enum.text())
+            } else {
+                StringTextComponent(enum.text())
+            }
         ) {
             Minecraft.getInstance().player?.chat(enum.command())
             onClose()
