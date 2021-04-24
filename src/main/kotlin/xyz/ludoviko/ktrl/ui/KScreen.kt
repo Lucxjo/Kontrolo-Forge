@@ -7,6 +7,8 @@ import net.minecraft.client.gui.widget.button.Button
 import net.minecraft.util.text.StringTextComponent
 import net.minecraft.util.text.TranslationTextComponent
 import xyz.ludoviko.ktrl.ui.widget.KButton
+import xyz.ludoviko.ktrl.util.Command
+import xyz.ludoviko.ktrl.util.Gamemode
 import xyz.ludoviko.ktrl.util.Time
 import xyz.ludoviko.ktrl.util.Weather
 
@@ -26,6 +28,7 @@ class KScreen : Screen(StringTextComponent("Kontrolo")) {
 
         addWeather()
         addTime()
+        addGamemode()
 
         addButton(KButton(
             (width - BUTTON_WIDTH) / 2,
@@ -115,6 +118,16 @@ class KScreen : Screen(StringTextComponent("Kontrolo")) {
         })
     }
 
+    private fun addGamemode() {
+        addKButton(20, 165, 90, 20, Gamemode.CREATIVE)
+
+        addKButton(120, 165, 90, 20, Gamemode.SURVIVAL)
+
+        addKButton(220, 165, 90, 20, Gamemode.ADVENTURE)
+
+        addKButton(320, 165, 90, 20, Gamemode.SPECTATOR)
+    }
+
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
         this.renderBackground(matrixStack)
         drawCenteredString(matrixStack, this.font, this.title.string, this.width / 2, 20, 0xFFFFFF)
@@ -129,5 +142,14 @@ class KScreen : Screen(StringTextComponent("Kontrolo")) {
             20, 85, 0xFFFFFF
         )
         super.render(matrixStack, mouseX, mouseY, partialTicks)
+    }
+
+    fun addKButton(xPos: Int, yPos: Int, width: Int, height: Int, enum: Command) {
+        addButton(KButton(
+            xPos, yPos, width, height, TranslationTextComponent(enum.translationKey())
+        ) {
+            Minecraft.getInstance().player?.chat(enum.command())
+            onClose()
+        })
     }
 }
