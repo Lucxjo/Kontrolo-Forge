@@ -1,4 +1,4 @@
-package xyz.ludoviko.ktrl.util
+package xyz.ludoviko.ktrl.util.cmd
 
 enum class Weather(private val id: Int, private val text: String, private val cmd: String) : Command {
     CLEAR(0, "text.ktrl.weather.clear.label", "/weather clear 15000"),

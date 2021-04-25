@@ -1,4 +1,4 @@
-package xyz.ludoviko.ktrl.util
+package xyz.ludoviko.ktrl.util.cmd
 
 enum class Gamemode(private val id: Int, private val translationKey: String, private val cmd: String) : Command {
     CREATIVE(0, "text.ktrl.gm.creative.label", "/gamemode creative"),

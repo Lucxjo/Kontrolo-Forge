@@ -1,11 +1,15 @@
 package xyz.ludoviko.ktrl
 
+import net.minecraftforge.common.ForgeConfigSpec
 import net.minecraftforge.fml.common.Mod
+import net.minecraftforge.fml.config.ModConfig
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
 import org.apache.logging.log4j.LogManager
 import thedarkcolour.kotlinforforge.forge.FORGE_BUS
 import thedarkcolour.kotlinforforge.forge.MOD_BUS
+import thedarkcolour.kotlinforforge.forge.registerConfig
 import xyz.ludoviko.ktrl.key.Key
+import xyz.ludoviko.ktrl.util.conf.Holder
 
 @Mod(Kontrolo.ID)
 object Kontrolo {
@@ -17,7 +21,11 @@ object Kontrolo {
         LOGGER.info("Loaded Kontrolo object")
 
         MOD_BUS.addListener(::onClientLoad)
+        MOD_BUS.addListener(Holder::sync)
         FORGE_BUS.addListener(Key::onEvent)
+
+        val specPair = ForgeConfigSpec.Builder().configure(Holder::configure)
+        registerConfig(ModConfig.Type.CLIENT, specPair.right, "kontrolo.toml")
     }
 
     private fun onClientLoad(event: FMLClientSetupEvent) {

@@ -6,10 +6,10 @@ import net.minecraft.client.gui.screen.Screen
 import net.minecraft.util.text.StringTextComponent
 import net.minecraft.util.text.TranslationTextComponent
 import xyz.ludoviko.ktrl.ui.widget.KButton
-import xyz.ludoviko.ktrl.util.Command
-import xyz.ludoviko.ktrl.util.Gamemode
-import xyz.ludoviko.ktrl.util.Time
-import xyz.ludoviko.ktrl.util.Weather
+import xyz.ludoviko.ktrl.util.cmd.Command
+import xyz.ludoviko.ktrl.util.cmd.Gamemode
+import xyz.ludoviko.ktrl.util.cmd.Time
+import xyz.ludoviko.ktrl.util.cmd.Weather
 
 
 class KScreen : Screen(StringTextComponent("Kontrolo")) {

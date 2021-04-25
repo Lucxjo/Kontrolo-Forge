@@ -1,4 +1,4 @@
-package xyz.ludoviko.ktrl.util
+package xyz.ludoviko.ktrl.util.cmd
 
 interface Command {
 
