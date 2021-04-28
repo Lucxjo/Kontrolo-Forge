@@ -1,9 +1,11 @@
 package xyz.ludoviko.ktrl.util.cmd
 
+import xyz.ludoviko.ktrl.util.conf.Config
+
 enum class Weather(private val id: Int, private val text: String, private val cmd: String) : Command {
-    CLEAR(0, "text.ktrl.weather.clear.label", "/weather clear 15000"),
-    RAIN(1, "text.ktrl.weather.rain.label", "/weather rain 15000"),
-    THUNDER(2, "text.ktrl.weather.thunder.label", "/weather thunder 15000");
+    CLEAR(0, "text.ktrl.weather.clear.label", "/weather clear ${Config.weatherDelay.value}"),
+    RAIN(1, "text.ktrl.weather.rain.label", "/weather rain ${Config.weatherDelay.value}"),
+    THUNDER(2, "text.ktrl.weather.thunder.label", "/weather thunder ${Config.weatherDelay.value}");
 
     fun byId(id: Int): Weather {
         for (weather in values()) {

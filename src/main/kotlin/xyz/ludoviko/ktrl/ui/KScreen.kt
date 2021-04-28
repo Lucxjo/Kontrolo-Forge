@@ -13,18 +13,9 @@ import xyz.ludoviko.ktrl.util.cmd.Weather
 
 
 class KScreen : Screen(StringTextComponent("Kontrolo")) {
-    /** Width of a button  */
-    private val BUTTON_WIDTH = 200
-
-    /** Height of a button  */
-    private val BUTTON_HEIGHT = 20
-
-    /** Distance from bottom of the screen to the "Done" button's top  */
-    private val DONE_BUTTON_TOP_OFFSET = 26
 
     override fun init() {
         super.init()
-
         addWeather()
         addTime()
         addGamemode()
