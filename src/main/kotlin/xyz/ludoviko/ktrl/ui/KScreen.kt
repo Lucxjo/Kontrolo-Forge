@@ -1,18 +1,14 @@
 package xyz.ludoviko.ktrl.ui
 
 import com.mojang.blaze3d.matrix.MatrixStack
-import net.minecraft.client.Minecraft
-import net.minecraft.client.gui.screen.Screen
 import net.minecraft.util.text.StringTextComponent
 import net.minecraft.util.text.TranslationTextComponent
-import xyz.ludoviko.ktrl.ui.widget.KButton
-import xyz.ludoviko.ktrl.util.cmd.Command
 import xyz.ludoviko.ktrl.util.cmd.Gamemode
 import xyz.ludoviko.ktrl.util.cmd.Time
 import xyz.ludoviko.ktrl.util.cmd.Weather
 
 
-class KScreen : Screen(StringTextComponent("Kontrolo")) {
+class KScreen : AKScreen(StringTextComponent("Kontrolo")) {
 
     override fun init() {
         super.init()
@@ -74,18 +70,5 @@ class KScreen : Screen(StringTextComponent("Kontrolo")) {
             20, 150, 0xFFFFFF
         )
         super.render(matrixStack, mouseX, mouseY, partialTicks)
-    }
-
-    fun addKButton(xPos: Int, yPos: Int, width: Int, height: Int, enum: Command, translatable: Boolean = true) {
-        addButton(KButton(
-            xPos, yPos, width, height, if (translatable) {
-                TranslationTextComponent(enum.text())
-            } else {
-                StringTextComponent(enum.text())
-            }
-        ) {
-            Minecraft.getInstance().player?.chat(enum.command())
-            onClose()
-        })
     }
 }
