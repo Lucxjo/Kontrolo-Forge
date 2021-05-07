@@ -25,5 +25,6 @@
     "text.ktrl.option.timeSettings.addButton1": "Unua aldona butono",
     "text.ktrl.option.timeSettings.addButton2": "Dua aldona butono",
     "text.ktrl.option.weatherSettings": "Veteraj Agordoj",
-    "text.ktrl.option.weatherSettings.weatherDelay": "Prokrasto (tiktakoj)"
+    "text.ktrl.option.weatherSettings.weatherDelay": "Prokrasto (tiktakoj)",
+    "key.ktrl.gui.custom": "Propra GUI"
 }
