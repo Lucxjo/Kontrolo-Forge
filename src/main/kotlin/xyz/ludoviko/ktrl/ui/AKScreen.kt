@@ -23,6 +23,15 @@ abstract class AKScreen(title: ITextComponent) : Screen(title) {
         })
     }
 
+    fun addKButton(xPos: Int, yPos: Int, width: Int, height: Int, title: String, cmd: String) {
+        addButton(KButton(
+            xPos, yPos, width, height, StringTextComponent(title)
+        ) {
+            Minecraft.getInstance().player?.chat(cmd)
+            onClose()
+        })
+    }
+
     // Helper function to ensure correct namings are used in function parameters
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
         drawCenteredString(matrixStack, this.font, this.title.string, this.width / 2, 20, 0xFFFFFF)
