@@ -53,7 +53,6 @@ class KScreen : AKScreen(StringTextComponent("Kontrolo")) {
 
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
         this.renderBackground(matrixStack)
-        drawCenteredString(matrixStack, this.font, this.title.string, this.width / 2, 20, 0xFFFFFF)
         drawString(
             matrixStack, this.font,
             TranslationTextComponent("text.ktrl.weather.label"),

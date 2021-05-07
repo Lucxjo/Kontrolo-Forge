@@ -8,6 +8,7 @@ object Holder {
         Config.setup()
         Config.time.addToConfig(builder)
         Config.weather.addToConfig(builder)
+        Config.custom.addToConfig(builder)
     }
 
     fun sync(event: ModConfig.ModConfigEvent) {
@@ -15,5 +16,6 @@ object Holder {
 
         Config.time.sync(data, "")
         Config.weather.sync(data, "")
+        Config.custom.sync(data, "")
     }
 }

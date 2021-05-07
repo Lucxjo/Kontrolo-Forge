@@ -25,6 +25,7 @@ abstract class AKScreen(title: ITextComponent) : Screen(title) {
 
     // Helper function to ensure correct namings are used in function parameters
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
+        drawCenteredString(matrixStack, this.font, this.title.string, this.width / 2, 20, 0xFFFFFF)
         super.render(matrixStack, mouseX, mouseY, partialTicks)
     }
 }
