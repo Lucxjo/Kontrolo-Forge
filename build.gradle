@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: project.forge_gradle, changing: true
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${project.kotlin_version}"
         classpath "org.jetbrains.kotlin:kotlin-serialization:${project.kotlin_version}"
     }
@@ -19,7 +19,7 @@ version = project.mod_version
 group = project.maven_group // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = project.archives_base_name
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
+java.toolchain.languageVersion = JavaLanguageVersion.of(16) // Mojang ships Java 8 to end users, so your mod should target Java 8.
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
@@ -152,9 +152,9 @@ dependencies {
 
 compileKotlin {
     kotlinOptions {
-        jvmTarget = '1.8'
-        languageVersion = '1.4'
-        apiVersion = '1.4'
+        jvmTarget = '16'
+        languageVersion = '1.5'
+        apiVersion = '1.5'
     }
 }
 
