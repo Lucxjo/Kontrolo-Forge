@@ -1,7 +1,7 @@
 package xyz.ludoviko.ktrl.util.conf
 
 import net.minecraftforge.common.ForgeConfigSpec
-import net.minecraftforge.fml.config.ModConfig
+import net.minecraftforge.fml.event.config.ModConfigEvent
 
 object Holder {
     fun configure(builder: ForgeConfigSpec.Builder) {
@@ -11,7 +11,7 @@ object Holder {
         Config.custom.addToConfig(builder)
     }
 
-    fun sync(event: ModConfig.ModConfigEvent) {
+    fun sync(event: ModConfigEvent) {
         val data = event.config.configData
 
         Config.time.sync(data, "")

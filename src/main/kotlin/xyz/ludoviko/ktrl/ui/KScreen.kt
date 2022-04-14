@@ -1,14 +1,14 @@
 package xyz.ludoviko.ktrl.ui
 
-import com.mojang.blaze3d.matrix.MatrixStack
-import net.minecraft.util.text.StringTextComponent
-import net.minecraft.util.text.TranslationTextComponent
+import com.mojang.blaze3d.vertex.PoseStack
+import net.minecraft.network.chat.TextComponent
+import net.minecraft.network.chat.TranslatableComponent
 import xyz.ludoviko.ktrl.util.cmd.Gamemode
 import xyz.ludoviko.ktrl.util.cmd.Time
 import xyz.ludoviko.ktrl.util.cmd.Weather
 
 
-class KScreen : AKScreen(StringTextComponent("Kontrolo")) {
+class KScreen : AKScreen(TextComponent("Kontrolo")) {
 
     override fun init() {
         super.init()
@@ -51,21 +51,21 @@ class KScreen : AKScreen(StringTextComponent("Kontrolo")) {
         addKButton(320, 165, 90, 20, Gamemode.SPECTATOR)
     }
 
-    override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
+    override fun render(matrixStack: PoseStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
         this.renderBackground(matrixStack)
         drawString(
             matrixStack, this.font,
-            TranslationTextComponent("text.ktrl.weather.label"),
+            TranslatableComponent("text.ktrl.weather.label"),
             20, 40, 0xFFFFFF
         )
         drawString(
             matrixStack, this.font,
-            TranslationTextComponent("text.ktrl.time.label"),
+            TranslatableComponent("text.ktrl.time.label"),
             20, 85, 0xFFFFFF
         )
         drawString(
             matrixStack, this.font,
-            TranslationTextComponent("text.ktrl.gm.label"),
+            TranslatableComponent("text.ktrl.gm.label"),
             20, 150, 0xFFFFFF
         )
         super.render(matrixStack, mouseX, mouseY, partialTicks)

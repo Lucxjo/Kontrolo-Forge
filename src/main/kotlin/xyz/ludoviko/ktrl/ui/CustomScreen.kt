@@ -1,10 +1,10 @@
 package xyz.ludoviko.ktrl.ui
 
-import com.mojang.blaze3d.matrix.MatrixStack
-import net.minecraft.util.text.StringTextComponent
+import com.mojang.blaze3d.vertex.PoseStack
+import net.minecraft.network.chat.TextComponent
 import xyz.ludoviko.ktrl.util.conf.Config
 
-class CustomScreen : AKScreen(StringTextComponent("Kontrolo")) {
+class CustomScreen : AKScreen(TextComponent("Kontrolo")) {
 
     override fun init() {
         super.init()
@@ -28,7 +28,7 @@ class CustomScreen : AKScreen(StringTextComponent("Kontrolo")) {
             addKButton(220, 160, 90, 20, Config.button5Title.value, Config.button5Cmd.value)
     }
 
-    override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
+    override fun render(matrixStack: PoseStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
         this.renderBackground(matrixStack)
         super.render(matrixStack, mouseX, mouseY, partialTicks)
     }
