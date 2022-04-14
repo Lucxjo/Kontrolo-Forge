@@ -35,6 +35,10 @@ abstract class AKScreen(title: Component) : Screen(title) {
         }))
     }
 
+    init {
+        buttons.clear()
+    }
+
     // Helper function to ensure correct namings are used in function parameters
     override fun render(matrixStack: PoseStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
         drawCenteredString(matrixStack, this.font, this.title.string, this.width / 2, 20, 0xFFFFFF)
