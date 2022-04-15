@@ -2,8 +2,8 @@ package xyz.ludoviko.ktrl.key
 
 import net.minecraft.client.KeyMapping
 import net.minecraft.client.Minecraft
+import net.minecraftforge.client.ClientRegistry
 import net.minecraftforge.client.event.InputEvent
-import net.minecraftforge.fmlclient.registry.ClientRegistry
 import org.lwjgl.glfw.GLFW
 import xyz.ludoviko.ktrl.ui.CustomScreen
 import xyz.ludoviko.ktrl.ui.KScreen
